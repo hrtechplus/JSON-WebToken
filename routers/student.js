@@ -9,4 +9,5 @@ router.get("/", (req, res) => {
   ]);
 });
 
+exports.router = router;
 // meka pennann one log wechcha kenekta withrai
