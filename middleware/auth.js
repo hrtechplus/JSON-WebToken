@@ -8,18 +8,10 @@ module.exports = function (req, res, next) {
   ) {
     const token = req.headers.authorization.split(" ")[1];
 
-    if (!token) {
-      return res.status(401).send("Access Denied");
-    }
+    if (token == null) res.status(401);
 
     jwt.verify(token, process.env.EN_KEY, (err, user) => {
-      if (err) {
-        if (err.name === "TokenExpiredError") {
-          return res.status(401).send("Token Expired");
-        } else {
-          return res.status(403).send("Invalid Token");
-        }
-      }
+      if (err) res.sendStatus(403);
 
       req.user = user;
       next();
