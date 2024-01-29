@@ -7,6 +7,9 @@ router.post("/login", (req, res) => {
   const user = { name: username };
   const token = jwt.sign(user, "hello my name is token");
   res.send({ token });
+
+  //sample hhtp request url
+  //http://localhost:3000/api/user/login
 });
 
 module.exports = router;
