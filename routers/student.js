@@ -3,7 +3,7 @@ const router = express.Router();
 
 router.get("/", (req, res) => {
   const user = req.user;
-  res.send(user);
+  res.json(user);
   // res.json([
   //   { id: 1, name: "John Doe" },
   //   { id: 2, name: "Jane Doe" },
@@ -11,4 +11,4 @@ router.get("/", (req, res) => {
   // ]);
 });
 
-exports.router = router;
+module.exports = router;
