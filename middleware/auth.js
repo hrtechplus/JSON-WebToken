@@ -8,7 +8,7 @@ module.exports = function (req, res, next) {
   ) {
     const token = req.headers.authorization.split(" ")[1];
 
-    if (token == null) res.status(401);
+    if (token == null) res.status(401).send("Access Denied");
 
     jwt.verify(token, process.env.EN_KEY, (err, user) => {
       if (err) res.sendStatus(403);
